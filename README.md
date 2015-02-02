@@ -4,11 +4,16 @@ This is a sample Rails API in 2 versions, to keep the material clear and easy to
 
 The versions will cover the following material:
 
+###### Tell Me a Story
+This is an open story builder. Just add a sentence, and make the story great!
+
+
 V1
 
 * Testing
 * Rendering JSON with Jbuilder
 * Versioning
+* Pagination
 
 
 V2
