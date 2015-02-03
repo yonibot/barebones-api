@@ -23,7 +23,7 @@ module API
       end
 
       def update
-        @story = Sentence.where(id: params[:id]).first
+        @sentence = Sentence.where(id: params[:id]).first
         if @sentence.update_attributes(content: params[:sentence][:content])
           render 'show', formats: [:json], handlers: [:jbuilder], status: 200
         else
