@@ -21,6 +21,3 @@ The above plus:
 * Testing
 * Authentication
 * Rendering JSON with ActiveModel::Serializers
-
-
-###### Pull requests will be welcomed as soon the project is mature enough.
