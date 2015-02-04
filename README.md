@@ -7,6 +7,8 @@ The versions will cover the following material:
 ###### Tell Me a Story
 This is an open story builder. Just add a sentence, and make the story great!
 
+More info here: http://www.yoniweisbrod.com/rails-api-mini-guide/
+
 
 V1
 
