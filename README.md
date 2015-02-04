@@ -10,7 +10,6 @@ This is an open story builder. Just add a sentence, and make the story great!
 
 V1
 
-* Testing
 * Rendering JSON with Jbuilder
 * Versioning
 * Pagination
@@ -19,6 +18,7 @@ V1
 V2
 
 The above plus:
+* Testing
 * Authentication
 * Rendering JSON with ActiveModel::Serializers
 
