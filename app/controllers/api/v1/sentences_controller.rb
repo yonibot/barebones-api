@@ -14,7 +14,7 @@ module API
 
       def create
         @story = Story.where(id: params[:story_id]).first
-        @sentence = Sentence.new(story_id: params[:story_id], content: params[:id], position: @story.sentences.last.position+1)
+        @sentence = Sentence.new(story_id: params[:story_id], content: params[:sentence][:content], position: @story.sentences.last.position+1)
         if @sentence.save
           render 'show', formats: [:json], handlers: [:jbuilder], status: 200
         else
