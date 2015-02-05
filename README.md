@@ -1,6 +1,6 @@
 #### Barebones API
 
-This is a sample Rails API in 2 versions, to keep the material clear and easy to follow. Version 1 will cover basic API concepts, and version 2 will cover concepts that are a little more advanced and complex, such as authentication.
+This is a sample RESTful Rails API in 2 versions, to keep the material clear and easy to follow. Version 1 will cover basic API concepts, and version 2 will cover concepts that are a little more advanced and complex, such as authentication.
 
 The versions will cover the following material:
 
