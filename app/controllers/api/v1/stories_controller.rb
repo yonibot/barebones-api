@@ -15,7 +15,7 @@ module API
         @story = Story.new(title: params[:story][:title])
         if @story.save
           # pass an array of acceptable formats - [:json]
-          render 'show', formats: [:json], handlers: [:jbuilder], status: 200
+          render 'show', formats: [:json], handlers: [:jbuilder], status: 201
         else
           render json: {error: "Story could not be created."}, status: 422
         end

@@ -16,7 +16,7 @@ module API
         @story = Story.where(id: params[:story_id]).first
         @sentence = Sentence.new(story_id: params[:story_id], content: params[:sentence][:content], position: @story.sentences.last.position+1)
         if @sentence.save
-          render 'show', formats: [:json], handlers: [:jbuilder], status: 200
+          render 'show', formats: [:json], handlers: [:jbuilder], status: 201
         else
           render json: {error: "Sentence could not be created."}, status: 422
         end
