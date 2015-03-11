@@ -2,13 +2,10 @@ module API
   module V1
 
     class StoriesController < ApplicationController
+      before_action :find_story, only: [:show, :update, :destroy]
 
       def index
         @stories = Story.includes(:sentences).page(params[:page])
-      end
-
-      def show
-        @story = Story.where(id: params[:id]).first
       end
 
       def create
@@ -17,26 +14,29 @@ module API
           # pass an array of acceptable formats - [:json]
           render 'show', formats: [:json], handlers: [:jbuilder], status: 201
         else
-          render json: {error: "Story could not be created."}, status: 422
+          render json: { error: "Story could not be created." }, status: 422
         end
       end
 
       def update
-        @story = Story.where(id: params[:id]).first
         if @story.update_attributes(title: params[:story][:title])
           render 'show', formats: [:json], handlers: [:jbuilder], status: 200
         else
-          render json: {error: "Story could not be created."}, status: 422
+          render json: { error: "Story could not be updated." }, status: 422
         end
       end
 
       def destroy
-        @story = Story.where(id: params[:id]).first
         if @story.destroy
           render json: {}, status: 200
         else
-          render json: {error: "Story could not be deleted."}, status: 422
+          render json: { error: "Story could not be deleted." }, status: 422
         end
+      end
+
+      private
+      def find_story
+        @story = Story.find(params[:id])
       end
 
     end
