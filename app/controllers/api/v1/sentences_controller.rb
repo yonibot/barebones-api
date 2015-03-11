@@ -27,7 +27,7 @@ module API
         if @sentence.update_attributes(content: params[:sentence][:content])
           render 'show', formats: [:json], handlers: [:jbuilder], status: 200
         else
-          render json: {error: "Sentence could not be created."}, status: 422
+          render json: {error: "Sentence could not be updated."}, status: 422
         end
       end
 
