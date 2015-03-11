@@ -2,44 +2,47 @@ module API
   module V1
 
     class SentencesController < ApplicationController
+      before_action :find_sentence, only: [:show, :update, :destroy]
 
       def index
-        @story = Story.where(id: params[:story_id]).first
+        @story = Story.find(params[:story_id])
         @sentences = @story.sentences
       end
 
       def show
-        @sentence = Sentence.where(id: params[:id]).first
       end
 
       def create
-        @story = Story.where(id: params[:story_id]).first
+        @story = Story.find(params[:story_id])
         @sentence = Sentence.new(story_id: params[:story_id], content: params[:sentence][:content], position: @story.sentences.last.position+1)
         if @sentence.save
           render 'show', formats: [:json], handlers: [:jbuilder], status: 201
         else
-          render json: {error: "Sentence could not be created."}, status: 422
+          render json: { error: "Sentence could not be created." }, status: 422
         end
       end
 
       def update
-        @sentence = Sentence.where(id: params[:id]).first
         if @sentence.update_attributes(content: params[:sentence][:content])
           render 'show', formats: [:json], handlers: [:jbuilder], status: 200
         else
-          render json: {error: "Sentence could not be updated."}, status: 422
+          render json: { error: "Sentence could not be updated." }, status: 422
         end
       end
 
       def destroy
-        @sentence = Sentence.where(id: params[:id]).first
         if @sentence.destroy
           render json: {}, status: 200
         else
-          render json: {error: "Sentence could not be deleted."}, status: 422
+          render json: { error: "Sentence could not be deleted." }, status: 422
         end
       end
 
+      private
+
+      def find_sentence
+        @sentence = Sentence.find(params[:id])
+      end
     end
 
   end
